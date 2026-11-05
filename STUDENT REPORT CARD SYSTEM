@@ -1,0 +1,72 @@
+Number_of_students=input('How many students:' )
+while not Number_of_students.isnumeric():
+      print('Only numbers are allowed')
+      Number_of_students=input('How many students:' )
+Number_of_students = int(Number_of_students)
+while Number_of_students < 1 or Number_of_students > 500:
+     print("Only numbers between 1–500 are allowed")
+     Number_of_students=input('How many students:' )
+     while not Number_of_students.isnumeric():
+         print('Only numbers are allowed')
+         Number_of_students=input('How many students:' )
+     Number_of_students = int(Number_of_students)
+
+
+students=[]
+for i in range(Number_of_students):
+    Name=input('Enter student name: ')
+    Score=input('what is the score: ')
+    while not Score.isnumeric():
+     print('Numbers only')
+     Score=input('what is the score: ')
+    Score = int(Score)  
+    while  Score < 0 or Score > 100:
+     print('Score can only be betwwen 0-100')
+     Score=(input('what is the score: '))
+     while not Score.isnumeric():
+         print('Numbers only')
+         Score=input('what is the score: ')
+     Score = int(Score)  
+    students.append([Name,Score])
+    
+
+
+
+for student in students:
+    name=student[0]
+    grade=student[1]
+    remark=''
+    letter_grade=''
+    if 80 <= grade <= 100:
+        remark='Excellent'
+        letter_grade='A'
+    elif 70<= grade < 80:
+        remark='Very good'
+        letter_grade='B'
+    elif 60 <= grade <70:
+        remark='Good'
+        letter_grade='C'
+    elif 50 <= grade <60:
+        remark='Trying'
+        letter_grade='D'
+    elif 40 <= grade < 50  :
+        remark='Poor'
+        letter_grade='E'
+    elif 0 <= grade < 40:
+        remark ='Fail'
+        letter_grade='F'
+    print(f'Name:{name} Score:{grade} Grade:{letter_grade}  Remark:{remark}')  
+passed=0
+failed=0
+for dinstincton in students:
+    score=dinstincton[1]
+    if score>= 60:
+        passed +=1
+    elif score< 60:
+        failed += 1
+print(f'Passed:{passed}')
+print(f'Failed:{failed}')
+total_students=passed+failed
+print(f'Total students:{total_students}')
+
+
